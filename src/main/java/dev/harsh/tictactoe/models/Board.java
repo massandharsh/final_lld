@@ -27,7 +27,14 @@ public class Board {
         });
     }
 
+    private void printBefore(){
+        System.out.println("=====================================");
+        System.out.println("🎮 Game Board 🕹️");
+        System.out.println("😃 Get ready to play turn! 😄");
+    }
+
     public void print(){
+        printBefore();
         //Print the board later !!!
         System.out.print("   ");
         for(int i=0;i<size;i++)
@@ -44,6 +51,12 @@ public class Board {
                 System.out.print("----");
             System.out.println();
         }
+
+        printAfter();
+    }
+
+    private void printAfter(){
+        System.out.println("=====================================");
     }
 
     public void setSymbol(GameSymbol gameSymbol,int row,int col){

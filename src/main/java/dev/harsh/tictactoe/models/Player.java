@@ -1,9 +1,6 @@
 package dev.harsh.tictactoe.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 
@@ -12,6 +9,7 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 @NoArgsConstructor
+@ToString
 public abstract class Player {
     private GameSymbol gameSymbol;
     public abstract BoardCell makeMove(Board board);

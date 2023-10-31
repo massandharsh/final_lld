@@ -11,6 +11,7 @@ import java.util.*;
 public class TicTacToeClient {
     private final static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
+
         System.out.println("!!Let the fun begin with tic tac toe!!");
         //Take input for players
         List<Player> playerList = new ArrayList<>(getHumanPlayersList());
@@ -27,6 +28,7 @@ public class TicTacToeClient {
         }
         if(game.getWinnerPlayer().isPresent()){
             //We have a winner
+            game.getBoard().print();
             System.out.println("!!Winner !!" + game.getWinnerPlayer().get().getGameSymbol());
         }
         else{
@@ -121,8 +123,8 @@ public class TicTacToeClient {
         Random random = new Random();
 
         // Generate a random character within the ASCII range (32 to 126)
-        int minAsciiValue = 32;
-        int maxAsciiValue = 126;
+        int minAsciiValue = 0;
+        int maxAsciiValue = 500;
         int randomAsciiValue = random.nextInt(maxAsciiValue - minAsciiValue + 1) + minAsciiValue;
 
         // Convert the random ASCII value to a character

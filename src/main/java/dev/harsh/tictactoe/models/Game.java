@@ -110,6 +110,9 @@ public class Game {
     //Main make move method
     public void makeMove(){
         BoardCell cell = playNextMove();
+        //Fill the cell with symbol
+        assert cell.getSymbol().isPresent();
+        board.setSymbol(cell.getSymbol().get(),cell.getRow(),cell.getCol());
         //Check for win
         if(isWin(cell)){
             winnerPlayer = Optional.of(players.get(nextPlayerIndex));
@@ -121,9 +124,7 @@ public class Game {
             gameStatus = GameStatus.DRAW;
             return;
         }
-        //Fill the cell with symbol
-        assert cell.getSymbol().isPresent();
-        board.setSymbol(cell.getSymbol().get(),cell.getRow(),cell.getCol());
+
         //Increase the player index
         nextPlayerIndex = (nextPlayerIndex + 1) % players.size();
     }
